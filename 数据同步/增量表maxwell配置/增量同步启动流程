@@ -1,0 +1,13 @@
+=============
+增量表启动流程
+=============
+
+1.启动kafka
+
+2.启动flume
+tms_fl.sh
+
+3.启动maxwell
+tms_mysql_to_kafka_mxw.sh
+tms_mysql_to_kafka_mxw_inc_init.sh(首次加载启动)
+
