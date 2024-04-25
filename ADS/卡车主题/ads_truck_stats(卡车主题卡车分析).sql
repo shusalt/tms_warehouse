@@ -22,14 +22,13 @@ insert overwrite table ads_truck_stats
 select
 	dt,
 	recent_days,
-	driver_emp_id,
-	driver_name,
+	truck_model_type,
+	truck_model_type_name,
 	trans_finish_count,
 	trans_finish_distance,
 	trans_finish_dur_sec,
 	avg_trans_finish_distance,
-	avg_trans_finish_dur_sec,
-	trans_finish_late_count
+	avg_trans_finish_dur_sec
 from ads_truck_stats
 union
 select
@@ -41,8 +40,7 @@ select
 	sum(trans_finish_distance) trans_finish_distance,
 	sum(trans_finish_dur_sec) trans_finish_dur_sec,
 	sum(trans_finish_distance) / sum(trans_finish_count) avg_trans_finish_distance,
-	sum(trans_finish_dur_sec) / sum(trans_finish_count) avg_trans_finish_dur_sec,
-	sum(trans_finish_delay_count) trans_finish_late_count
+	sum(trans_finish_dur_sec) / sum(trans_finish_count) avg_trans_finish_dur_sec
 from dws_trans_shift_trans_finish_nd
 where dt = '2024-01-08'
 group by

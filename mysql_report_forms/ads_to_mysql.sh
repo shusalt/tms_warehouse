@@ -22,7 +22,7 @@ export_data(){
 	datax_config=$1
 	export_dir=$2
 	handle_export_path $export_dir
-	$DATAX_HOEM/bin/datax.python -p"-Dexportdir=$export_dir" $datax_config
+	$DATAX_HOEM/bin/datax.py -p"-Dexportdir=$export_dir" $datax_config
 }
 
 
