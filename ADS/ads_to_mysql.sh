@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATAX_HOEM=/usr/sda/datax
+DATAX_HOEM=/usr/sda3/datax
 
 # DataX导出路径不允许存在空文件，该函数作用为清理空文件
 # hdfs dfs -ls -R $1递归查目录下的文件
