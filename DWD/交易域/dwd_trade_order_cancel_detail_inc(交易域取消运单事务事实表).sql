@@ -155,7 +155,7 @@ on order_info.collect_type = collect_type_dic.collect_type_id;
 with cancel_info as (
 	-- 每日取消运单操作的数据
 	select
-		order_info.id
+		order_info.id,
 		order_info.cancel_time,
 		order_info.order_no,
 		order_info.status,
@@ -181,7 +181,7 @@ with cancel_info as (
 	from (
 		select
 			data.id
-			data.cancel_time,
+			data.update_time cancel_time,
 			data.order_no,
 			data.status,
 			data.collect_type,
@@ -200,7 +200,7 @@ with cancel_info as (
 			data.amount,
 			data.estimate_arrive_time,
 			data.distance,
-			data.ts
+			ts
 		from ods_order_info_inc
 		where dt = '2024-01-08'
 			and data.is_deleted = '0'

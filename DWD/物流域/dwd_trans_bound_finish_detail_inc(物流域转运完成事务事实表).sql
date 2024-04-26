@@ -199,7 +199,12 @@ with order_info_info as (
 		estimate_arrive_time,
 		distance
 	from dwd_trade_order_process_inc
-	where dt = '9999-12-31'
+	where dt = '9999-12-31' 
+		and (status = '60010' or 
+				status = '60020' or 
+				status = '60030' or 
+				status = '60040' or 
+				status = '60050')
 	union
 	-- 当日新增运单数据
 	select
@@ -366,7 +371,8 @@ bound_finish_inc as (
 		where dt = '2024-01-08' 
 			and data.is_deleted = '0' 
 			and type = 'update' 
-			and data.status not in ('60010', '60020', '60030', '60040', '60050', '60999')
+			and data.status = '60060'
+			and old["status"] = '60050'
 	) order_info
 	left join (
 		-- 状态类型名

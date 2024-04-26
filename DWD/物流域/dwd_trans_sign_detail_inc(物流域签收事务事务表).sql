@@ -368,7 +368,8 @@ sign_inc as (
 		where dt = '2024-01-08' 
 			and data.is_deleted = '0' 
 			and type = 'update' 
-			and data.status not in ('60010', '60020', '60030', '60040', '60050', '60060', '60070', '60999')
+			and data.status = '60080'
+			and old["status"] = '60070'
 	) order_info
 	left join (
 		-- 状态类型名
