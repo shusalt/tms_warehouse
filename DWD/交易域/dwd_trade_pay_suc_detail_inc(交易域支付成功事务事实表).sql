@@ -224,7 +224,8 @@ with pay_info as (
 		where dt = '2024-01-08' 
 			and data.is_deleted = '0' 
 			and type = 'update' 
-			and data.status not in ('60010', '60999')
+			and data.status = '60020'
+			and old["status"] = '60010'
 	) order_info
 	left join (
 		-- 状态类型名
