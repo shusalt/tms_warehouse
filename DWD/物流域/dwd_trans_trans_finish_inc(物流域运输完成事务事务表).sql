@@ -144,6 +144,7 @@ from (
 		and type = 'update'
 		-- actual_end_time不为空，表示两个机构之间的一次运输已完成
 		and data.actual_end_time is not null
+		and old["actual_end_time"] is null
 ) info
 left join (
 	select
